@@ -143,12 +143,10 @@
   from {
     opacity: 0;
     transform: translateY(26px) skewY(4deg);
-    filter: blur(8px);
   }
   to {
     opacity: 1;
     transform: translateY(0) skewY(0);
-    filter: blur(0);
   }
 }
 
