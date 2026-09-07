@@ -207,6 +207,11 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.1;
+}
+
+.intro-word {
+  display: inline-block;
+  opacity: 0;
   background: linear-gradient(
     135deg,
     oklch(0.88 0.13 90) 0%,
@@ -217,11 +222,6 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.intro-word {
-  display: inline-block;
-  opacity: 0;
   animation: intro-word-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
