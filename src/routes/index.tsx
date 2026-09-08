@@ -162,7 +162,7 @@ function NameIntro() {
       <div className="intro-scale-icon">
         <Scale className="h-10 w-10" strokeWidth={1.25} />
       </div>
-      <div className="intro-name font-display italic">
+      <div className="intro-name font-display">
         {"Adv. Rajeshkumar L. Yadav".split(" ").map((word, i) => (
           <span key={i} className="intro-word" style={{ animationDelay: `${0.15 + i * 0.18}s` }}>
             {word}
@@ -218,7 +218,7 @@ function Landing() {
             <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-border">
               <Scale className="h-4 w-4" />
             </span>
-            <span className="truncate font-display text-sm font-bold italic tracking-tight sm:text-base">
+            <span className="truncate font-display text-sm font-bold tracking-tight sm:text-base">
               Adv. Rajeshkumar L. Yadav
             </span>
           </a>
