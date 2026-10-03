@@ -25,7 +25,7 @@ import {
   X,
 } from "lucide-react";
 const portraitUrl = "/images/advocate-portrait.png";
-const highCourt = "/images/court-hero.png";
+const justiceStatue = "/images/justice-statue.jpg";
 import { LegalChatbot } from "@/components/legal/chatbot";
 import { Reveal } from "@/components/legal/reveal";
 import { submitLead } from "@/lib/leads";
@@ -260,81 +260,72 @@ function Landing() {
       </header>
 
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-border bg-foreground text-background">
+      <section className="relative flex min-h-[92vh] items-end overflow-hidden border-b border-border bg-foreground text-background">
         <img
-          src={highCourt}
-          alt=""
-          aria-hidden="true"
+          src={justiceStatue}
+          alt="Lady Justice statue holding scales and sword"
           loading="eager"
           decoding="async"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.16] mix-blend-screen [mask-image:linear-gradient(to_bottom,black_50%,transparent_95%)]"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[68%_center]"
         />
-        <div className="relative z-10 mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-          <div>
-            <p className="hero-in inline-block rounded-full border border-background/25 bg-transparent px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-background/70">
-              Advocate & Notary · Mumbai
-            </p>
-            <h1
-              className="hero-in mt-6 text-4xl font-black leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl"
-              style={{ animationDelay: "120ms" }}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/35 to-transparent"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-r from-foreground/70 via-foreground/20 to-transparent"
+        />
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-14 pt-40 sm:px-6 sm:pb-16">
+          <p className="hero-in inline-block rounded-full border border-background/25 bg-transparent px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-background/70">
+            Advocate & Notary · Mumbai
+          </p>
+          <h1
+            className="hero-in mt-6 text-4xl font-black leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl"
+            style={{ animationDelay: "120ms" }}
+          >
+            Adv. Rajeshkumar
+            <br />
+            L. Yadav
+          </h1>
+          <p
+            className="hero-in mt-6 max-w-xl text-sm text-background/75 sm:text-lg"
+            style={{ animationDelay: "240ms" }}
+          >
+            Advocate & Notary — Government of India | B.A., LL.B. | 18+ Years of Experience
+          </p>
+          <div
+            className="hero-in mt-8 flex flex-col gap-3 sm:flex-row"
+            style={{ animationDelay: "360ms" }}
+          >
+            <a
+              href="#contact"
+              className="btn-press inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-background px-6 py-3 text-sm font-medium text-foreground hover:opacity-90"
             >
-              Adv. Rajeshkumar
-              <br />
-              L. Yadav
-            </h1>
-            <p
-              className="hero-in mt-6 max-w-xl text-sm text-background/75 sm:text-lg"
-              style={{ animationDelay: "240ms" }}
+              Book a Free Consultation <ArrowRight className="h-4 w-4" />
+            </a>
+            <a
+              href="tel:9029678910"
+              className="btn-press inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-background/40 bg-transparent px-6 py-3 text-sm font-medium hover:bg-background/10"
             >
-              Advocate & Notary — Government of India | B.A., LL.B. | 18+ Years of Experience
-            </p>
-            <div
-              className="hero-in mt-8 flex flex-col gap-3 sm:flex-row"
-              style={{ animationDelay: "360ms" }}
-            >
-              <a
-                href="#contact"
-                className="btn-press inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-background px-6 py-3 text-sm font-medium text-foreground hover:opacity-90"
-              >
-                Book a Free Consultation <ArrowRight className="h-4 w-4" />
-              </a>
-              <a
-                href="tel:9029678910"
-                className="btn-press inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-background/40 bg-transparent px-6 py-3 text-sm font-medium hover:bg-background/10"
-              >
-                <Phone className="h-4 w-4" /> Call Now
-              </a>
-            </div>
-            <div
-              className="hero-in mt-10 flex flex-wrap gap-3"
-              style={{ animationDelay: "480ms" }}
-            >
-              {[
-                { icon: Stamp, label: "Notary, Govt. of India" },
-                { icon: ShieldCheck, label: "Bar Council of Maharashtra & Goa" },
-              ].map((b) => (
-                <span
-                  key={b.label}
-                  className="inline-flex items-center gap-2 rounded-full border border-background/25 bg-transparent px-4 py-2 text-xs text-background/80"
-                >
-                  <b.icon className="h-3.5 w-3.5" /> {b.label}
-                </span>
-              ))}
-            </div>
+              <Phone className="h-4 w-4" /> Call Now
+            </a>
           </div>
           <div
-            className="hero-in rounded-[2rem] border border-background/20 bg-transparent p-3"
-            style={{ animationDelay: "200ms" }}
+            className="hero-in mt-10 flex flex-wrap gap-3"
+            style={{ animationDelay: "480ms" }}
           >
-            <img
-              src={portraitUrl}
-              alt="Portrait of Adv. Rajeshkumar L. Yadav in advocate robes"
-              className="aspect-[4/5] w-full rounded-[1.5rem] object-cover object-top"
-              loading="eager"
-              decoding="async"
-              width={800}
-              height={1000}
-            />
+            {[
+              { icon: Stamp, label: "Notary, Govt. of India" },
+              { icon: ShieldCheck, label: "Bar Council of Maharashtra & Goa" },
+            ].map((b) => (
+              <span
+                key={b.label}
+                className="inline-flex items-center gap-2 rounded-full border border-background/25 bg-transparent px-4 py-2 text-xs text-background/80"
+              >
+                <b.icon className="h-3.5 w-3.5" /> {b.label}
+              </span>
+            ))}
           </div>
         </div>
       </section>
