@@ -376,3 +376,96 @@
     letter-spacing: -0.02em;
   }
 }
+
+/* Full-screen Lady Justice scroll experience */
+body.justice-page-active {
+  margin: 0;
+  background: oklch(0 0 0);
+  overscroll-behavior-y: none;
+  touch-action: pan-y;
+}
+
+.justice-scroll {
+  position: relative;
+  height: 300vh;
+  min-height: 300svh;
+  background: oklch(0 0 0);
+  touch-action: pan-y;
+}
+
+.justice-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100svh;
+  overflow: clip;
+  background: oklch(0 0 0);
+  perspective: clamp(900px, 120vw, 1800px);
+}
+
+.justice-float {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  animation: justice-float 3s ease-in-out infinite;
+}
+
+.justice-statue {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  height: 100svh;
+  object-fit: cover;
+  object-position: center;
+  transform-origin: 50% 50%;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  will-change: transform;
+  filter: drop-shadow(0 1.5rem 3rem oklch(0 0 0 / 0.75));
+}
+
+.justice-name {
+  display: none;
+}
+
+@keyframes justice-float {
+  0%,
+  100% {
+    transform: translate3d(0, -2px, 0);
+  }
+  50% {
+    transform: translate3d(0, 2px, 0);
+  }
+}
+
+@media (max-width: 767px) {
+  .justice-statue {
+    height: calc(100svh - clamp(4.5rem, 17vw, 6rem));
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  .justice-name {
+    position: absolute;
+    inset-inline: 0;
+    bottom: max(1.2rem, env(safe-area-inset-bottom));
+    display: block;
+    margin: 0;
+    color: oklch(0.9 0.08 85);
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 5.2vw, 1.45rem);
+    font-weight: 600;
+    line-height: 1.15;
+    text-align: center;
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .justice-float {
+    animation: none;
+  }
+}
