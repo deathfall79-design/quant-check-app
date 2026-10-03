@@ -8,5 +8,3 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
-
-- Keep the public homepage as a single 300vh Lady Justice scroll experience; this is the product's intentional presentation.
