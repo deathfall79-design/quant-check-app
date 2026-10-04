@@ -179,6 +179,14 @@ function NameIntro() {
 
 function Landing() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [overHero, setOverHero] = useState(true);
+
+  useEffect(() => {
+    const onScroll = () => setOverHero(window.scrollY < window.innerHeight * 0.85);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   const [form, setForm] = useState({ name: "", phone: "", email: "", area: "", message: "" });
   const [saving, setSaving] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -212,10 +220,20 @@ function Landing() {
       <NameIntro />
 
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-border bg-background/70 backdrop-blur-xl">
+      <header
+        className={`fixed inset-x-0 top-0 z-40 border-b backdrop-blur-md transition-colors duration-300 ${
+          overHero
+            ? "border-white/10 bg-black/10 text-white"
+            : "border-border bg-background/80 text-foreground"
+        }`}
+      >
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:px-6">
           <a href="#home" className="flex min-w-0 items-center gap-2">
-            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-border">
+            <span
+              className={`grid h-8 w-8 shrink-0 place-items-center rounded-full border ${
+                overHero ? "border-white/30" : "border-border"
+              }`}
+            >
               <Scale className="h-4 w-4" />
             </span>
             <span className="truncate font-display text-sm font-bold tracking-tight sm:text-base">
@@ -224,19 +242,27 @@ function Landing() {
           </a>
           <nav className="hidden items-center gap-6 lg:flex">
             {NAV.map((n) => (
-              <a key={n.href} href={n.href} className="text-sm text-muted-foreground hover:text-foreground">
+              <a
+                key={n.href}
+                href={n.href}
+                className={`text-sm transition-colors ${
+                  overHero ? "text-white/70 hover:text-white" : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
                 {n.label}
               </a>
             ))}
             <a
               href="#contact"
-              className="rounded-full border border-border px-4 py-2 text-sm font-medium hover:bg-accent"
+              className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                overHero ? "border-white/30 hover:bg-white/10" : "border-border hover:bg-accent"
+              }`}
             >
               Free Consultation
             </a>
           </nav>
           <button
-            className="rounded-full border border-border p-2 lg:hidden"
+            className={`rounded-full border p-2 lg:hidden ${overHero ? "border-white/30" : "border-border"}`}
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle menu"
           >
@@ -244,7 +270,7 @@ function Landing() {
           </button>
         </div>
         {menuOpen && (
-          <nav className="border-t border-border px-4 py-3 lg:hidden">
+          <nav className="border-t border-border bg-background/95 px-4 py-3 text-foreground backdrop-blur-md lg:hidden">
             {[...NAV, { href: "#contact", label: "Free Consultation" }].map((n) => (
               <a
                 key={n.label}
@@ -331,7 +357,7 @@ function Landing() {
       </section>
 
       {/* About */}
-      <section id="about" className="border-b border-border">
+      <section id="about" className="scroll-mt-20 border-b border-border">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <Reveal>
             <h2 className="text-3xl font-black tracking-tight sm:text-5xl">About</h2>
@@ -381,7 +407,7 @@ function Landing() {
       </section>
 
       {/* Practice Areas */}
-      <section id="practice" className="border-b border-border">
+      <section id="practice" className="scroll-mt-20 border-b border-border">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <Reveal>
             <h2 className="text-3xl font-black tracking-tight sm:text-5xl">Practice Areas</h2>
@@ -471,7 +497,7 @@ function Landing() {
       </section>
 
       {/* Contact */}
-      <section id="contact">
+      <section id="contact" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <Reveal>
             <h2 className="text-3xl font-black tracking-tight sm:text-5xl">Contact</h2>
