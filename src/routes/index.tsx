@@ -212,7 +212,7 @@ function Landing() {
       <NameIntro />
 
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-background/10 bg-background/10 backdrop-blur-md">
+      <header className="fixed inset-x-0 top-0 z-40 border-b border-background/10 bg-background/10 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:px-6">
           <a href="#home" className="flex min-w-0 items-center gap-2">
             <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-border">
@@ -331,7 +331,7 @@ function Landing() {
       </section>
 
       {/* About */}
-      <section id="about" className="border-b border-border">
+      <section id="about" className="scroll-mt-20 border-b border-border">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <Reveal>
             <h2 className="text-3xl font-black tracking-tight sm:text-5xl">About</h2>
@@ -381,7 +381,7 @@ function Landing() {
       </section>
 
       {/* Practice Areas */}
-      <section id="practice" className="border-b border-border">
+      <section id="practice" className="scroll-mt-20 border-b border-border">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <Reveal>
             <h2 className="text-3xl font-black tracking-tight sm:text-5xl">Practice Areas</h2>
@@ -471,7 +471,7 @@ function Landing() {
       </section>
 
       {/* Contact */}
-      <section id="contact">
+      <section id="contact" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <Reveal>
             <h2 className="text-3xl font-black tracking-tight sm:text-5xl">Contact</h2>
