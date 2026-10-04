@@ -179,6 +179,14 @@ function NameIntro() {
 
 function Landing() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [overHero, setOverHero] = useState(true);
+
+  useEffect(() => {
+    const onScroll = () => setOverHero(window.scrollY < window.innerHeight * 0.85);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   const [form, setForm] = useState({ name: "", phone: "", email: "", area: "", message: "" });
   const [saving, setSaving] = useState(false);
   const [submitted, setSubmitted] = useState(false);
