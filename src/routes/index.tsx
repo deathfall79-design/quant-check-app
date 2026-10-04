@@ -270,7 +270,7 @@ function Landing() {
           </button>
         </div>
         {menuOpen && (
-          <nav className="border-t border-border px-4 py-3 lg:hidden">
+          <nav className="border-t border-border bg-background/95 px-4 py-3 text-foreground backdrop-blur-md lg:hidden">
             {[...NAV, { href: "#contact", label: "Free Consultation" }].map((n) => (
               <a
                 key={n.label}
