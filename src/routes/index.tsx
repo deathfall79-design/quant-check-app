@@ -220,10 +220,20 @@ function Landing() {
       <NameIntro />
 
       {/* Header */}
-      <header className="fixed inset-x-0 top-0 z-40 border-b border-background/10 bg-background/10 backdrop-blur-md">
+      <header
+        className={`fixed inset-x-0 top-0 z-40 border-b backdrop-blur-md transition-colors duration-300 ${
+          overHero
+            ? "border-white/10 bg-black/10 text-white"
+            : "border-border bg-background/80 text-foreground"
+        }`}
+      >
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:px-6">
           <a href="#home" className="flex min-w-0 items-center gap-2">
-            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-border">
+            <span
+              className={`grid h-8 w-8 shrink-0 place-items-center rounded-full border ${
+                overHero ? "border-white/30" : "border-border"
+              }`}
+            >
               <Scale className="h-4 w-4" />
             </span>
             <span className="truncate font-display text-sm font-bold tracking-tight sm:text-base">
@@ -232,19 +242,27 @@ function Landing() {
           </a>
           <nav className="hidden items-center gap-6 lg:flex">
             {NAV.map((n) => (
-              <a key={n.href} href={n.href} className="text-sm text-muted-foreground hover:text-foreground">
+              <a
+                key={n.href}
+                href={n.href}
+                className={`text-sm transition-colors ${
+                  overHero ? "text-white/70 hover:text-white" : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
                 {n.label}
               </a>
             ))}
             <a
               href="#contact"
-              className="rounded-full border border-border px-4 py-2 text-sm font-medium hover:bg-accent"
+              className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                overHero ? "border-white/30 hover:bg-white/10" : "border-border hover:bg-accent"
+              }`}
             >
               Free Consultation
             </a>
           </nav>
           <button
-            className="rounded-full border border-border p-2 lg:hidden"
+            className={`rounded-full border p-2 lg:hidden ${overHero ? "border-white/30" : "border-border"}`}
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle menu"
           >
