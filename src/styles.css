@@ -339,6 +339,21 @@
   transform: scale(0.97);
 }
 
+.pixel-portrait-glow {
+  box-shadow:
+    inset 0 0 34px color-mix(in oklab, var(--foreground) 24%, transparent),
+    0 0 34px color-mix(in oklab, var(--foreground) 18%, transparent);
+}
+
+.pixel-portrait-tile {
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+.pixel-portrait-locked .pixel-portrait-tile {
+  transform-style: preserve-3d;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal.reveal-visible,
@@ -349,7 +364,8 @@
     transform: none;
   }
   .card-hover,
-  .btn-press {
+  .btn-press,
+  .pixel-portrait-tile {
     transition: none;
   }
   .intro-overlay {

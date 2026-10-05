@@ -1,47 +1,28 @@
-import { useEffect, useRef, useState, type ReactNode, type CSSProperties } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import type { ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
   delay?: number;
   className?: string;
   as?: "div" | "section" | "figure";
+  id?: string;
 };
 
-export function Reveal({ children, delay = 0, className = "", as: Tag = "div" }: Props) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setVisible(true);
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            setVisible(true);
-            io.disconnect();
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
-  const style: CSSProperties = { transitionDelay: `${delay}ms` };
+export function Reveal({ children, delay = 0, className = "", as: Tag = "div", id }: Props) {
+  const reduceMotion = useReducedMotion();
+  const Component = motion[Tag];
 
   return (
-    <Tag
-      ref={ref as never}
-      style={style}
-      className={`reveal ${visible ? "reveal-visible" : ""} ${className}`}
+    <Component
+      id={id}
+      initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12, margin: "0px 0px -40px 0px" }}
+      transition={{ duration: 0.62, delay: delay / 1000, ease: [0.22, 1, 0.36, 1] }}
+      className={className}
     >
       {children}
-    </Tag>
+    </Component>
   );
 }
