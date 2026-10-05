@@ -148,14 +148,24 @@ const REVIEWS = [
   },
 ];
 
-function NameIntro() {
+function NameIntro({ onReveal }: { onReveal: () => void }) {
   const [show, setShow] = useState(true);
 
   useEffect(() => {
+    const seen = window.sessionStorage.getItem("intro_seen") === "1";
     window.sessionStorage.setItem("intro_seen", "1");
+    if (seen) {
+      onReveal();
+      setShow(false);
+      return;
+    }
+    const revealTimer = window.setTimeout(onReveal, 2600);
     const t = window.setTimeout(() => setShow(false), 3400);
-    return () => window.clearTimeout(t);
-  }, []);
+    return () => {
+      window.clearTimeout(revealTimer);
+      window.clearTimeout(t);
+    };
+  }, [onReveal]);
 
   if (!show) return null;
 
@@ -220,6 +230,7 @@ function AnimatedBalance() {
 function Landing() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [overHero, setOverHero] = useState(true);
+  const [heroRevealed, setHeroRevealed] = useState(false);
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
@@ -258,7 +269,7 @@ function Landing() {
   return (
     <div id="home" className="min-h-screen scroll-smooth bg-background text-foreground">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />
-      <NameIntro />
+      <NameIntro onReveal={() => setHeroRevealed(true)} />
 
       {/* Header */}
       <header
@@ -340,7 +351,7 @@ function Landing() {
           decoding="async"
           className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[68%_center]"
           initial={reduceMotion ? false : { opacity: 0, scale: 1.035 }}
-          animate={{ opacity: 1, scale: 1 }}
+          animate={heroRevealed ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.035 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         />
         <AnimatedBalance />
