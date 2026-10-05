@@ -411,7 +411,7 @@ function Landing() {
       </motion.section>
 
       {/* About */}
-      <Reveal as="section" className="scroll-mt-20 border-b border-border">
+      <Reveal id="about" as="section" className="scroll-mt-20 border-b border-border">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <Reveal>
             <h2 className="text-3xl font-black tracking-tight sm:text-5xl">About</h2>
@@ -465,7 +465,7 @@ function Landing() {
       </Reveal>
 
       {/* Practice Areas */}
-      <Reveal as="section" className="scroll-mt-20 border-b border-border">
+      <Reveal id="practice" as="section" className="scroll-mt-20 border-b border-border">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <Reveal>
             <h2 className="text-3xl font-black tracking-tight sm:text-5xl">Practice Areas</h2>
@@ -555,7 +555,7 @@ function Landing() {
       </Reveal>
 
       {/* Contact */}
-      <Reveal as="section" className="scroll-mt-20">
+      <Reveal id="contact" as="section" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <Reveal>
             <h2 className="text-3xl font-black tracking-tight sm:text-5xl">Contact</h2>
