@@ -411,7 +411,7 @@ function Landing() {
       </motion.section>
 
       {/* About */}
-      <section id="about" className="scroll-mt-20 border-b border-border">
+      <Reveal as="section" className="scroll-mt-20 border-b border-border">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <Reveal>
             <h2 className="text-3xl font-black tracking-tight sm:text-5xl">About</h2>
@@ -462,10 +462,10 @@ function Landing() {
             </Reveal>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* Practice Areas */}
-      <section id="practice" className="scroll-mt-20 border-b border-border">
+      <Reveal as="section" className="scroll-mt-20 border-b border-border">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <Reveal>
             <h2 className="text-3xl font-black tracking-tight sm:text-5xl">Practice Areas</h2>
@@ -490,10 +490,10 @@ function Landing() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* Why Clients Trust Us */}
-      <section className="border-b border-border">
+      <Reveal as="section" className="border-b border-border">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <Reveal>
             <h2 className="text-3xl font-black tracking-tight sm:text-5xl">Why Clients Trust Us</h2>
@@ -534,10 +534,10 @@ function Landing() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* Trust */}
-      <section className="border-b border-border">
+      <Reveal as="section" className="border-b border-border">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <Reveal>
             <h2 className="text-3xl font-black tracking-tight sm:text-5xl">Trust & Recognition</h2>
@@ -552,10 +552,10 @@ function Landing() {
             </p>
           </Reveal>
         </div>
-      </section>
+      </Reveal>
 
       {/* Contact */}
-      <section id="contact" className="scroll-mt-20">
+      <Reveal as="section" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <Reveal>
             <h2 className="text-3xl font-black tracking-tight sm:text-5xl">Contact</h2>
@@ -685,7 +685,7 @@ function Landing() {
             </Reveal>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* Footer */}
       <footer className="border-t border-border">

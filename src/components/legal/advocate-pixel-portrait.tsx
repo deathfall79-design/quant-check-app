@@ -75,7 +75,7 @@ export function AdvocatePixelPortrait({ src, alt }: { src: string; alt: string }
               style={{
                 backgroundImage: `url(${src})`,
                 backgroundSize: `${cols * 100}% ${rows * 100}%`,
-                backgroundPosition: `${cols === 1 ? 0 : (col / (cols - 1)) * 100}% ${rows === 1 ? 0 : (row / (rows - 1)) * 100}%`,
+                backgroundPosition: `${(col / (cols - 1)) * 100}% ${(row / (rows - 1)) * 100}%`,
               }}
               initial={{ opacity: 0, x, y, rotate: rotation, scale: isDesktop ? 0.42 : 0.82 }}
               animate={inView ? { opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 } : undefined}
