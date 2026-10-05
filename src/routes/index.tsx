@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import {
@@ -27,6 +28,7 @@ import {
 const portraitUrl = "/images/advocate-portrait.png";
 const justiceStatue = "/images/justice-statue.jpg";
 import { LegalChatbot } from "@/components/legal/chatbot";
+import { AdvocatePixelPortrait } from "@/components/legal/advocate-pixel-portrait";
 import { Reveal } from "@/components/legal/reveal";
 import { submitLead } from "@/lib/leads";
 import { Star } from "lucide-react";
@@ -177,9 +179,48 @@ function NameIntro() {
   );
 }
 
+function AnimatedBalance() {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <motion.div
+      aria-hidden="true"
+      className="pointer-events-none absolute left-[43.5%] top-[21%] hidden w-[23%] origin-top text-background/55 mix-blend-screen md:block"
+      animate={reduceMotion ? undefined : { rotate: [-0.7, 0.7, -0.7] }}
+      transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
+    >
+      <div className="relative aspect-[1.65/1]">
+        <div className="absolute left-1/2 top-0 h-[2px] w-[84%] -translate-x-1/2 bg-current opacity-30" />
+        <motion.div
+          className="absolute left-[5%] top-[7%] h-[82%] w-[38%] origin-top"
+          animate={reduceMotion ? undefined : { y: [0, 8, 0] }}
+          transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <div className="absolute left-1/2 top-0 h-[72%] w-px bg-current opacity-25" />
+          <div className="absolute bottom-0 h-[18%] w-full rounded-[50%] border-b border-current opacity-45" />
+        </motion.div>
+        <motion.div
+          className="absolute right-[5%] top-[7%] h-[82%] w-[38%] origin-top"
+          animate={reduceMotion ? undefined : { y: [8, 0, 8] }}
+          transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <div className="absolute left-1/2 top-0 h-[72%] w-px bg-current opacity-25" />
+          <div className="absolute bottom-0 h-[18%] w-full rounded-[50%] border-b border-current opacity-45" />
+        </motion.div>
+        <motion.div
+          className="absolute inset-y-0 w-[14%] bg-gradient-to-r from-transparent via-background/50 to-transparent blur-sm"
+          animate={reduceMotion ? undefined : { x: [0, 190, 0], opacity: [0, 0.65, 0] }}
+          transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </div>
+    </motion.div>
+  );
+}
+
 function Landing() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [overHero, setOverHero] = useState(true);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setOverHero(window.scrollY < window.innerHeight * 0.85);
@@ -286,14 +327,23 @@ function Landing() {
       </header>
 
       {/* Hero */}
-      <section className="relative flex min-h-[92vh] items-end overflow-hidden border-b border-border bg-foreground text-background">
-        <img
+      <motion.section
+        className="relative flex min-h-[92vh] items-end overflow-hidden border-b border-border bg-foreground text-background"
+        initial={reduceMotion ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.7 }}
+      >
+        <motion.img
           src={justiceStatue}
           alt="Lady Justice statue holding scales and sword"
           loading="eager"
           decoding="async"
           className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[68%_center]"
+          initial={reduceMotion ? false : { opacity: 0, scale: 1.035 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         />
+        <AnimatedBalance />
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/35 to-transparent"
@@ -324,18 +374,22 @@ function Landing() {
             className="hero-in mt-8 flex flex-col gap-3 sm:flex-row"
             style={{ animationDelay: "360ms" }}
           >
-            <a
+            <motion.a
               href="#contact"
               className="btn-press inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-background px-6 py-3 text-sm font-medium text-foreground hover:opacity-90"
+              whileHover={reduceMotion ? undefined : { y: -2 }}
+              whileTap={reduceMotion ? undefined : { scale: 0.97 }}
             >
               Book a Free Consultation <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href="tel:9029678910"
               className="btn-press inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-background/40 bg-transparent px-6 py-3 text-sm font-medium hover:bg-background/10"
+              whileHover={reduceMotion ? undefined : { y: -2 }}
+              whileTap={reduceMotion ? undefined : { scale: 0.97 }}
             >
               <Phone className="h-4 w-4" /> Call Now
-            </a>
+            </motion.a>
           </div>
           <div
             className="hero-in mt-10 flex flex-wrap gap-3"
@@ -354,7 +408,7 @@ function Landing() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* About */}
       <section id="about" className="scroll-mt-20 border-b border-border">
@@ -389,18 +443,22 @@ function Landing() {
               </div>
             </Reveal>
             <Reveal delay={120} className="card-hover rounded-3xl border border-border bg-transparent p-3">
-              <img
+              <AdvocatePixelPortrait
                 src={portraitUrl}
                 alt="Adv. Rajeshkumar L. Yadav, Advocate & Notary"
-                className="aspect-[4/5] w-full rounded-[1.25rem] object-cover object-top"
-                loading="lazy"
               />
-              <div className="p-4">
+              <motion.div
+                className="p-4"
+                initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 1.85 }}
+              >
                 <div className="text-lg font-bold tracking-tight">Adv. Rajeshkumar L. Yadav</div>
                 <div className="text-sm text-muted-foreground">
                   Advocate & Notary, Government of India
                 </div>
-              </div>
+              </motion.div>
             </Reveal>
           </div>
         </div>
@@ -602,13 +660,15 @@ function Landing() {
                 placeholder="Message"
                 className="w-full rounded-2xl border border-input bg-transparent px-4 py-3 text-sm outline-none focus:ring-1 focus:ring-ring"
               />
-              <button
+              <motion.button
                 type="submit"
                 disabled={saving}
                 className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background hover:opacity-90 disabled:opacity-60"
+                whileHover={reduceMotion ? undefined : { y: -2 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.98 }}
               >
                 {saving ? "Sending…" : "Book a Free Consultation"} <ArrowRight className="h-4 w-4" />
-              </button>
+              </motion.button>
               {submitted && (
                 <div className="rounded-2xl border border-border bg-transparent p-4 text-sm">
                   <div className="font-semibold">Thank you — your inquiry has been received.</div>
