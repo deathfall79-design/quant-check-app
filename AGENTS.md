@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Homepage entrance and scroll effects use Framer Motion with deterministic transforms and reduced-motion fallbacks to keep SSR stable and animation accessible.
