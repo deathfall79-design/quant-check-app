@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, useReducedMotion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
 import {
   Scale,
@@ -232,6 +232,7 @@ function Landing() {
   const [overHero, setOverHero] = useState(true);
   const [heroRevealed, setHeroRevealed] = useState(false);
   const reduceMotion = useReducedMotion();
+  const revealHero = useCallback(() => setHeroRevealed(true), []);
 
   useEffect(() => {
     const onScroll = () => setOverHero(window.scrollY < window.innerHeight * 0.85);
@@ -269,7 +270,7 @@ function Landing() {
   return (
     <div id="home" className="min-h-screen scroll-smooth bg-background text-foreground">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />
-      <NameIntro onReveal={() => setHeroRevealed(true)} />
+      <NameIntro onReveal={revealHero} />
 
       {/* Header */}
       <header
@@ -352,7 +353,7 @@ function Landing() {
           className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[68%_center]"
           initial={reduceMotion ? false : { opacity: 0, scale: 1.035 }}
           animate={heroRevealed ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.035 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: reduceMotion ? 0 : 1, ease: [0.22, 1, 0.36, 1] }}
         />
         <AnimatedBalance />
         <div
