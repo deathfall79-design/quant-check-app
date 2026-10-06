@@ -341,9 +341,9 @@ function Landing() {
       {/* Hero */}
       <motion.section
         className="relative flex min-h-[92vh] items-end overflow-hidden border-b border-border bg-foreground text-background"
-        initial={reduceMotion ? false : { opacity: 0 }}
+        initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.7 }}
+        transition={{ duration: reduceMotion ? 0 : 0.7 }}
       >
         <motion.img
           src={justiceStatue}
@@ -351,7 +351,7 @@ function Landing() {
           loading="eager"
           decoding="async"
           className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[68%_center]"
-          initial={reduceMotion ? false : { opacity: 0, scale: 1.035 }}
+          initial={{ opacity: 0, scale: 1.035 }}
           animate={heroRevealed ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.035 }}
           transition={{ duration: reduceMotion ? 0 : 1, ease: [0.22, 1, 0.36, 1] }}
         />
@@ -389,16 +389,16 @@ function Landing() {
             <motion.a
               href="#contact"
               className="btn-press inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-background px-6 py-3 text-sm font-medium text-foreground hover:opacity-90"
-              whileHover={reduceMotion ? undefined : { y: -2 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.97 }}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.97 }}
             >
               Book a Free Consultation <ArrowRight className="h-4 w-4" />
             </motion.a>
             <motion.a
               href="tel:9029678910"
               className="btn-press inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-background/40 bg-transparent px-6 py-3 text-sm font-medium hover:bg-background/10"
-              whileHover={reduceMotion ? undefined : { y: -2 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.97 }}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.97 }}
             >
               <Phone className="h-4 w-4" /> Call Now
             </motion.a>
@@ -461,10 +461,10 @@ function Landing() {
               />
               <motion.div
                 className="p-4"
-                initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 1.85 }}
+                transition={reduceMotion ? { duration: 0 } : { duration: 0.5, delay: 1.85 }}
               >
                 <div className="text-lg font-bold tracking-tight">Adv. Rajeshkumar L. Yadav</div>
                 <div className="text-sm text-muted-foreground">
@@ -676,8 +676,8 @@ function Landing() {
                 type="submit"
                 disabled={saving}
                 className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background hover:opacity-90 disabled:opacity-60"
-                whileHover={reduceMotion ? undefined : { y: -2 }}
-                whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
               >
                 {saving ? "Sending…" : "Book a Free Consultation"} <ArrowRight className="h-4 w-4" />
               </motion.button>

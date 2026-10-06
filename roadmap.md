@@ -5,4 +5,4 @@
 - [x] Apply Framer Motion fade-up and stagger animations across homepage sections, headings, cards, and buttons.
 - [x] Build the advocate portrait from about 300 gavel-marked pixel cubes on desktop.
 - [x] Use a lightweight pixel-grid portrait fallback on mobile and respect reduced motion.
-- [ ] Verify desktop/mobile rendering, interactions, overflow, console, and build health.
+- [x] Verify desktop/mobile rendering, interactions, overflow, console, and build health.
