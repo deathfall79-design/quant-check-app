@@ -341,9 +341,9 @@ function Landing() {
       {/* Hero */}
       <motion.section
         className="relative flex min-h-[92vh] items-end overflow-hidden border-b border-border bg-foreground text-background"
-        initial={reduceMotion ? false : { opacity: 0 }}
+        initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.7 }}
+        transition={{ duration: reduceMotion ? 0 : 0.7 }}
       >
         <motion.img
           src={justiceStatue}
@@ -351,7 +351,7 @@ function Landing() {
           loading="eager"
           decoding="async"
           className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[68%_center]"
-          initial={reduceMotion ? false : { opacity: 0, scale: 1.035 }}
+          initial={{ opacity: 0, scale: 1.035 }}
           animate={heroRevealed ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.035 }}
           transition={{ duration: reduceMotion ? 0 : 1, ease: [0.22, 1, 0.36, 1] }}
         />
@@ -461,10 +461,10 @@ function Landing() {
               />
               <motion.div
                 className="p-4"
-                initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 1.85 }}
+                transition={reduceMotion ? { duration: 0 } : { duration: 0.5, delay: 1.85 }}
               >
                 <div className="text-lg font-bold tracking-tight">Adv. Rajeshkumar L. Yadav</div>
                 <div className="text-sm text-muted-foreground">
