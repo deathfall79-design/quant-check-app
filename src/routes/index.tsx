@@ -201,8 +201,7 @@ function AnimatedBalance() {
       className="pointer-events-none absolute left-[6%] top-[24%] w-[72%] text-background/60 mix-blend-screen md:left-[20%] md:top-[27%] md:w-[45%]"
     >
       <div className="relative aspect-[1.34/1]">
-        {/* Central pivot post */}
-        <div className="absolute left-1/2 top-0 h-full w-[2px] -translate-x-1/2 bg-current opacity-30" />
+        {/* Pivot point aligns with the hand grip in the photo */}
         {/* Tilting beam with both pans hanging from it */}
         <motion.div
           className="absolute inset-0 origin-[50%_6%]"
