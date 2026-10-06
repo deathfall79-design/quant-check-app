@@ -191,39 +191,51 @@ function NameIntro({ onReveal }: { onReveal: () => void }) {
 
 function AnimatedBalance() {
   const reduceMotion = useReducedMotion();
+  const sway = reduceMotion
+    ? undefined
+    : { duration: 6, repeat: Infinity, ease: "easeInOut" as const };
 
   return (
-    <motion.div
+    <div
       aria-hidden="true"
-      className="pointer-events-none absolute left-[43.5%] top-[21%] hidden w-[23%] origin-top text-background/55 mix-blend-screen md:block"
-      animate={reduceMotion ? undefined : { rotate: [-0.7, 0.7, -0.7] }}
-      transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
+      className="pointer-events-none absolute left-[6%] top-[24%] w-[72%] text-background/60 mix-blend-screen md:left-[20%] md:top-[27%] md:w-[45%]"
     >
-      <div className="relative aspect-[1.65/1]">
-        <div className="absolute left-1/2 top-0 h-[2px] w-[84%] -translate-x-1/2 bg-current opacity-30" />
+      <div className="relative aspect-[1.34/1]">
+        {/* Pivot point aligns with the hand grip in the photo */}
+        {/* Tilting beam with both pans hanging from it */}
         <motion.div
-          className="absolute left-[5%] top-[7%] h-[82%] w-[38%] origin-top"
-          animate={reduceMotion ? undefined : { y: [0, 8, 0] }}
-          transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute inset-0 origin-[50%_6%]"
+          animate={reduceMotion ? undefined : { rotate: [2.4, -2.4, 2.4] }}
+          transition={sway}
         >
-          <div className="absolute left-1/2 top-0 h-[72%] w-px bg-current opacity-25" />
-          <div className="absolute bottom-0 h-[18%] w-full rounded-[50%] border-b border-current opacity-45" />
+          <div className="absolute left-1/2 top-[6%] h-[2px] w-[84%] -translate-x-1/2 bg-current opacity-40" />
+          {/* Left pan — goes down as beam tilts right */}
+          <motion.div
+            className="absolute left-[5%] top-[8%] h-[82%] w-[38%] origin-top"
+            animate={reduceMotion ? undefined : { y: [0, 14, 0] }}
+            transition={sway}
+          >
+            <div className="absolute left-1/2 top-0 h-[70%] w-px bg-current opacity-35" />
+            <div className="absolute bottom-0 h-[20%] w-full rounded-[50%] border-b-2 border-current opacity-55" />
+          </motion.div>
+          {/* Right pan — goes up as left goes down */}
+          <motion.div
+            className="absolute right-[5%] top-[8%] h-[82%] w-[38%] origin-top"
+            animate={reduceMotion ? undefined : { y: [14, 0, 14] }}
+            transition={sway}
+          >
+            <div className="absolute left-1/2 top-0 h-[70%] w-px bg-current opacity-35" />
+            <div className="absolute bottom-0 h-[20%] w-full rounded-[50%] border-b-2 border-current opacity-55" />
+          </motion.div>
+          {/* Metallic glint sweeping across the beam */}
+          <motion.div
+            className="absolute inset-y-0 w-[14%] bg-gradient-to-r from-transparent via-background/60 to-transparent blur-sm"
+            animate={reduceMotion ? undefined : { x: [0, 190, 0], opacity: [0, 0.7, 0] }}
+            transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+          />
         </motion.div>
-        <motion.div
-          className="absolute right-[5%] top-[7%] h-[82%] w-[38%] origin-top"
-          animate={reduceMotion ? undefined : { y: [8, 0, 8] }}
-          transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <div className="absolute left-1/2 top-0 h-[72%] w-px bg-current opacity-25" />
-          <div className="absolute bottom-0 h-[18%] w-full rounded-[50%] border-b border-current opacity-45" />
-        </motion.div>
-        <motion.div
-          className="absolute inset-y-0 w-[14%] bg-gradient-to-r from-transparent via-background/50 to-transparent blur-sm"
-          animate={reduceMotion ? undefined : { x: [0, 190, 0], opacity: [0, 0.65, 0] }}
-          transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
-        />
       </div>
-    </motion.div>
+    </div>
   );
 }
 
