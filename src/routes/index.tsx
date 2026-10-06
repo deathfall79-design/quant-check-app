@@ -198,9 +198,9 @@ function AnimatedBalance() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute left-[38%] top-[16%] w-[32%] text-background/60 mix-blend-screen md:left-[43.5%] md:top-[21%] md:w-[23%]"
+      className="pointer-events-none absolute left-[6%] top-[24%] w-[72%] text-background/60 mix-blend-screen md:left-[20%] md:top-[27%] md:w-[45%]"
     >
-      <div className="relative aspect-[1.65/1]">
+      <div className="relative aspect-[1.34/1]">
         {/* Central pivot post */}
         <div className="absolute left-1/2 top-0 h-full w-[2px] -translate-x-1/2 bg-current opacity-30" />
         {/* Tilting beam with both pans hanging from it */}
