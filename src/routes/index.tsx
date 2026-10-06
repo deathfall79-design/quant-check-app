@@ -389,16 +389,16 @@ function Landing() {
             <motion.a
               href="#contact"
               className="btn-press inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-background px-6 py-3 text-sm font-medium text-foreground hover:opacity-90"
-              whileHover={reduceMotion ? undefined : { y: -2 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.97 }}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.97 }}
             >
               Book a Free Consultation <ArrowRight className="h-4 w-4" />
             </motion.a>
             <motion.a
               href="tel:9029678910"
               className="btn-press inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-background/40 bg-transparent px-6 py-3 text-sm font-medium hover:bg-background/10"
-              whileHover={reduceMotion ? undefined : { y: -2 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.97 }}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.97 }}
             >
               <Phone className="h-4 w-4" /> Call Now
             </motion.a>
@@ -676,8 +676,8 @@ function Landing() {
                 type="submit"
                 disabled={saving}
                 className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background hover:opacity-90 disabled:opacity-60"
-                whileHover={reduceMotion ? undefined : { y: -2 }}
-                whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
               >
                 {saving ? "Sending…" : "Book a Free Consultation"} <ArrowRight className="h-4 w-4" />
               </motion.button>
