@@ -33,10 +33,10 @@ export function AdvocatePixelPortrait({ src, alt }: { src: string; alt: string }
           alt={alt}
           loading="lazy"
           className="h-full w-full object-cover object-top"
-          initial={reduceMotion ? false : { opacity: 0 }}
+          initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: reduceMotion ? 0 : 0.8 }}
         />
       </div>
     );
