@@ -26,7 +26,7 @@ import {
   X,
 } from "lucide-react";
 const portraitUrl = "/images/advocate-portrait.png";
-const justiceStatue = "/images/justice-statue.jpg";
+const justiceStatue = "/images/justice-statue-base.jpg";
 import { LegalChatbot } from "@/components/legal/chatbot";
 import { AdvocatePixelPortrait } from "@/components/legal/advocate-pixel-portrait";
 import { Reveal } from "@/components/legal/reveal";
@@ -189,53 +189,32 @@ function NameIntro({ onReveal }: { onReveal: () => void }) {
   );
 }
 
-function AnimatedBalance() {
-  const reduceMotion = useReducedMotion();
-  const sway = reduceMotion
-    ? undefined
-    : { duration: 6, repeat: Infinity, ease: "easeInOut" as const };
+const HERO_IMG_CLASS =
+  "pointer-events-none absolute inset-0 h-full w-full object-cover object-[68%_center]";
 
+/** Real pans cut from the statue photo; same framing as the base image so they line up exactly. */
+function AnimatedBalance({ visible }: { visible: boolean }) {
+  const reduceMotion = useReducedMotion();
+  const sway = { duration: 5, repeat: Infinity, ease: "easeInOut" as const };
+  const pans = [
+    { src: "/images/scale-pan-left.png", y: [0, 12, 0, -12, 0] },
+    { src: "/images/scale-pan-right.png", y: [0, -12, 0, 12, 0] },
+  ];
   return (
-    <div
-      aria-hidden="true"
-      className="pointer-events-none absolute left-[6%] top-[24%] w-[72%] text-background/60 mix-blend-screen md:left-[20%] md:top-[27%] md:w-[45%]"
-    >
-      <div className="relative aspect-[1.34/1]">
-        {/* Pivot point aligns with the hand grip in the photo */}
-        {/* Tilting beam with both pans hanging from it */}
-        <motion.div
-          className="absolute inset-0 origin-[50%_6%]"
-          animate={reduceMotion ? undefined : { rotate: [2.4, -2.4, 2.4] }}
-          transition={sway}
-        >
-          <div className="absolute left-1/2 top-[6%] h-[2px] w-[84%] -translate-x-1/2 bg-current opacity-40" />
-          {/* Left pan — goes down as beam tilts right */}
-          <motion.div
-            className="absolute left-[5%] top-[8%] h-[82%] w-[38%] origin-top"
-            animate={reduceMotion ? undefined : { y: [0, 14, 0] }}
-            transition={sway}
-          >
-            <div className="absolute left-1/2 top-0 h-[70%] w-px bg-current opacity-35" />
-            <div className="absolute bottom-0 h-[20%] w-full rounded-[50%] border-b-2 border-current opacity-55" />
-          </motion.div>
-          {/* Right pan — goes up as left goes down */}
-          <motion.div
-            className="absolute right-[5%] top-[8%] h-[82%] w-[38%] origin-top"
-            animate={reduceMotion ? undefined : { y: [14, 0, 14] }}
-            transition={sway}
-          >
-            <div className="absolute left-1/2 top-0 h-[70%] w-px bg-current opacity-35" />
-            <div className="absolute bottom-0 h-[20%] w-full rounded-[50%] border-b-2 border-current opacity-55" />
-          </motion.div>
-          {/* Metallic glint sweeping across the beam */}
-          <motion.div
-            className="absolute inset-y-0 w-[14%] bg-gradient-to-r from-transparent via-background/60 to-transparent blur-sm"
-            animate={reduceMotion ? undefined : { x: [0, 190, 0], opacity: [0, 0.7, 0] }}
-            transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </motion.div>
-      </div>
-    </div>
+    <>
+      {pans.map((p) => (
+        <motion.img
+          key={p.src}
+          src={p.src}
+          alt=""
+          aria-hidden="true"
+          className={HERO_IMG_CLASS}
+          initial={{ opacity: 0, y: 0 }}
+          animate={{ opacity: visible ? 1 : 0, y: reduceMotion ? 0 : p.y }}
+          transition={{ opacity: { duration: reduceMotion ? 0 : 1 }, y: reduceMotion ? { duration: 0 } : sway }}
+        />
+      ))}
+    </>
   );
 }
 
@@ -367,7 +346,7 @@ function Landing() {
           animate={heroRevealed ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.035 }}
           transition={{ duration: reduceMotion ? 0 : 1, ease: [0.22, 1, 0.36, 1] }}
         />
-        <AnimatedBalance />
+        <AnimatedBalance visible={heroRevealed} />
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/35 to-transparent"
