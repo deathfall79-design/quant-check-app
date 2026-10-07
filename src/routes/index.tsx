@@ -346,6 +346,15 @@ function Landing() {
           animate={heroRevealed ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.035 }}
           transition={{ duration: reduceMotion ? 0 : 1, ease: [0.22, 1, 0.36, 1] }}
         />
+        <motion.img
+          src="/images/silver-head-halo.png"
+          alt=""
+          aria-hidden="true"
+          className={`${HERO_IMG_CLASS} justice-head-halo`}
+          initial={{ opacity: 0, scale: 1.035 }}
+          animate={heroRevealed ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.035 }}
+          transition={{ duration: reduceMotion ? 0 : 1.6, ease: [0.22, 1, 0.36, 1] }}
+        />
         <AnimatedBalance visible={heroRevealed} />
         <div
           aria-hidden="true"
