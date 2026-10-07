@@ -6,5 +6,5 @@
 - [x] Build the advocate portrait from about 300 gavel-marked pixel cubes on desktop.
 - [x] Use a lightweight pixel-grid portrait fallback on mobile and respect reduced motion.
 - [x] Verify desktop/mobile rendering, interactions, overflow, console, and build health.
-- [ ] Add a faded silver halo behind Lady Justice’s head.
-- [ ] Refine the portrait pixel assembly and verify both effects.
+- [x] Add a faded silver halo behind Lady Justice’s head.
+- [x] Refine the portrait pixel assembly and verify both effects.
