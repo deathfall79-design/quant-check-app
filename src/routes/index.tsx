@@ -32,6 +32,7 @@ import { AdvocatePixelPortrait } from "@/components/legal/advocate-pixel-portrai
 import { Reveal } from "@/components/legal/reveal";
 import { submitLead } from "@/lib/leads";
 import { Star } from "lucide-react";
+import silverHalo from "@/assets/silver-head-halo.png.asset.json";
 
 const SITE_URL = "https://quant-check-app.lovable.app/";
 const TITLE = "Advocate Rajeshkumar Yadav | Bombay High Court, Mumbai";
@@ -345,6 +346,15 @@ function Landing() {
           initial={{ opacity: 0, scale: 1.035 }}
           animate={heroRevealed ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.035 }}
           transition={{ duration: reduceMotion ? 0 : 1, ease: [0.22, 1, 0.36, 1] }}
+        />
+        <motion.img
+          src={silverHalo.url}
+          alt=""
+          aria-hidden="true"
+          className={`${HERO_IMG_CLASS} justice-head-halo`}
+          initial={{ opacity: 0, scale: 1.035 }}
+          animate={heroRevealed ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.035 }}
+          transition={{ duration: reduceMotion ? 0 : 1.6, ease: [0.22, 1, 0.36, 1] }}
         />
         <AnimatedBalance visible={heroRevealed} />
         <div

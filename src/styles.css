@@ -69,6 +69,7 @@
   --border: oklch(0.9 0 0);
   --input: oklch(0.9 0 0);
   --ring: oklch(0.15 0 0);
+  --justice-silver: oklch(0.87 0 0);
   --chart-1: oklch(0.15 0 0);
   --chart-2: oklch(0.35 0 0);
   --chart-3: oklch(0.55 0 0);
@@ -351,7 +352,11 @@
 }
 
 .pixel-portrait-locked .pixel-portrait-tile {
-  transform-style: preserve-3d;
+  will-change: auto;
+}
+
+.justice-head-halo {
+  filter: drop-shadow(0 0 12px var(--justice-silver));
 }
 
 @media (prefers-reduced-motion: reduce) {
