@@ -196,10 +196,24 @@ const HERO_IMG_CLASS =
 /** Real pans cut from the statue photo; same framing as the base image so they line up exactly. */
 function AnimatedBalance({ visible }: { visible: boolean }) {
   const reduceMotion = useReducedMotion();
-  const sway = { duration: 5, repeat: Infinity, ease: "easeInOut" as const };
+  const [desktopMotion, setDesktopMotion] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 1024px) and (pointer: fine)");
+    const update = () => setDesktopMotion(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+
+  const moving = visible && desktopMotion && !reduceMotion;
+  // Sample one sine cycle: equal speed through the center, gentle turns,
+  // and matching position/velocity across the repeat boundary.
+  const wave = Array.from({ length: 65 }, (_, i) => i === 64 ? 0 : Math.sin((i / 64) * Math.PI * 2) * 8);
+  const sway = { duration: 8, repeat: Infinity, ease: "linear" as const };
   const pans = [
-    { src: "/images/scale-pan-left.png", y: [0, 12, 0, -12, 0] },
-    { src: "/images/scale-pan-right.png", y: [0, -12, 0, 12, 0] },
+    { src: "/images/scale-pan-left.png", y: wave },
+    { src: "/images/scale-pan-right.png", y: wave.map((value) => -value) },
   ];
   return (
     <>
@@ -211,8 +225,8 @@ function AnimatedBalance({ visible }: { visible: boolean }) {
           aria-hidden="true"
           className={HERO_IMG_CLASS}
           initial={{ opacity: 0, y: 0 }}
-          animate={{ opacity: visible ? 1 : 0, y: reduceMotion ? 0 : p.y }}
-          transition={{ opacity: { duration: reduceMotion ? 0 : 1 }, y: reduceMotion ? { duration: 0 } : sway }}
+          animate={{ opacity: visible ? 1 : 0, y: moving ? p.y : 0 }}
+          transition={{ opacity: { duration: reduceMotion ? 0 : 1 }, y: moving ? sway : { duration: 0 } }}
         />
       ))}
     </>

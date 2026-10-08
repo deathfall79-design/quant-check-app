@@ -11,4 +11,5 @@
 
 - Homepage entrance and scroll effects use Framer Motion with deterministic transforms and reduced-motion fallbacks to keep SSR stable and animation accessible.
 - Hero photo overlays share the original image dimensions and object-cover framing to keep the halo and real scales aligned at every screen size.
+- Real scale pans animate only on fine-pointer desktop viewports, using opposite sinusoidal transform loops; mobile and reduced-motion views retain static pans to avoid unnecessary animation work.
 - Portrait tiles render matching full-frame image crops and use deterministic center-out motion, with 3D transforms limited to desktop.

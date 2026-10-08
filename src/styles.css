@@ -70,6 +70,10 @@
   --input: oklch(0.9 0 0);
   --ring: oklch(0.15 0 0);
   --justice-silver: oklch(0.87 0 0);
+  --intro-background: oklch(0.08 0 0);
+  --intro-white: oklch(1 0 0);
+  --intro-silver: oklch(0.78 0 0);
+  --intro-shine: oklch(0.9 0 0);
   --chart-1: oklch(0.15 0 0);
   --chart-2: oklch(0.35 0 0);
   --chart-3: oklch(0.55 0 0);
@@ -198,8 +202,8 @@
   align-items: center;
   justify-content: center;
   gap: 1.25rem;
-  background-color: oklch(0.08 0 0);
-  color: oklch(0.81 0.14 85);
+  background-color: var(--intro-background);
+  color: var(--intro-white);
   animation: intro-out 0.7s ease 2.6s forwards;
   padding: 1.5rem;
   text-align: center;
@@ -232,11 +236,11 @@
   opacity: 0;
   background: linear-gradient(
     110deg,
-    oklch(0.7 0.14 82) 0%,
-    oklch(0.92 0.12 92) 35%,
-    oklch(0.88 0.13 90) 50%,
-    oklch(0.7 0.14 82) 70%,
-    oklch(0.88 0.13 90) 100%
+    var(--intro-shine) 0%,
+    var(--intro-white) 35%,
+    var(--intro-white) 50%,
+    var(--intro-shine) 70%,
+    var(--intro-white) 100%
   );
   background-size: 220% auto;
   -webkit-background-clip: text;
@@ -253,7 +257,7 @@
   background: linear-gradient(
     to right,
     transparent,
-    oklch(0.78 0.14 85),
+    var(--intro-silver),
     transparent
   );
   transform: scaleX(0);
@@ -265,7 +269,7 @@
   font-size: 0.8rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: oklch(0.65 0.09 85);
+  color: var(--intro-white);
   animation: intro-word-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
