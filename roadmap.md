@@ -12,3 +12,4 @@
 - [x] Verify desktop/mobile rendering, interactions, overflow, console, and build health.
 - [x] Add a faded silver halo behind Lady Justice’s head.
 - [x] Refine the portrait pixel assembly and verify both effects.
+- [x] Compact the mobile hero text, buttons, and badges while leaving the desktop hero unchanged.
