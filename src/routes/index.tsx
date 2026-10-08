@@ -286,7 +286,7 @@ function Landing() {
             : "border-border bg-background/80 text-foreground"
         }`}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:px-6">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2.5 sm:px-6 sm:py-4">
           <a href="#home" className="flex min-w-0 items-center gap-2">
             <span
               className={`grid h-8 w-8 shrink-0 place-items-center rounded-full border ${
@@ -379,12 +379,12 @@ function Landing() {
           aria-hidden="true"
           className="absolute inset-0 bg-gradient-to-r from-foreground/70 via-foreground/20 to-transparent"
         />
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-14 pt-40 sm:px-6 sm:pb-16">
-          <p className="hero-in inline-block rounded-full border border-background/25 bg-transparent px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-background/70">
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-9 pt-28 sm:px-6 sm:pb-16 sm:pt-40">
+          <p className="hero-in inline-block rounded-full border border-background/25 bg-transparent px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-widest text-background/70 sm:px-3 sm:py-1 sm:text-[10px]">
             Advocate & Notary · Mumbai
           </p>
           <h1
-            className="hero-in mt-6 text-4xl font-black leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl"
+            className="hero-in mt-3 text-[26px] font-black leading-[0.95] tracking-tight sm:mt-6 sm:text-6xl lg:text-7xl"
             style={{ animationDelay: "120ms" }}
           >
             Adv. Rajeshkumar
@@ -392,18 +392,18 @@ function Landing() {
             L. Yadav
           </h1>
           <p
-            className="hero-in mt-6 max-w-xl text-sm text-background/75 sm:text-lg"
+            className="hero-in mt-3 max-w-xl text-xs text-background/75 sm:mt-6 sm:text-lg"
             style={{ animationDelay: "240ms" }}
           >
             Advocate & Notary — Government of India | B.A., LL.B. | 18+ Years of Experience
           </p>
           <div
-            className="hero-in mt-8 flex flex-col gap-3 sm:flex-row"
+            className="hero-in mt-4 flex flex-col gap-2 sm:mt-8 sm:flex-row sm:gap-3"
             style={{ animationDelay: "360ms" }}
           >
             <motion.a
               href="#contact"
-              className="btn-press inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-background px-6 py-3 text-sm font-medium text-foreground hover:opacity-90"
+              className="btn-press inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-background px-4 py-2.5 text-xs font-medium text-foreground hover:opacity-90 sm:min-h-11 sm:px-6 sm:py-3 sm:text-sm"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -411,7 +411,7 @@ function Landing() {
             </motion.a>
             <motion.a
               href="tel:9029678910"
-              className="btn-press inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-background/40 bg-transparent px-6 py-3 text-sm font-medium hover:bg-background/10"
+              className="btn-press inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-background/40 bg-transparent px-4 py-2.5 text-xs font-medium hover:bg-background/10 sm:min-h-11 sm:px-6 sm:py-3 sm:text-sm"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -419,7 +419,7 @@ function Landing() {
             </motion.a>
           </div>
           <div
-            className="hero-in mt-10 flex flex-wrap gap-3"
+            className="hero-in mt-5 flex flex-wrap gap-2 sm:mt-10 sm:gap-3"
             style={{ animationDelay: "480ms" }}
           >
             {[
@@ -428,7 +428,7 @@ function Landing() {
             ].map((b) => (
               <span
                 key={b.label}
-                className="inline-flex items-center gap-2 rounded-full border border-background/25 bg-transparent px-4 py-2 text-xs text-background/80"
+                className="inline-flex items-center gap-2 rounded-full border border-background/25 bg-transparent px-3 py-1.5 text-[11px] text-background/80 sm:px-4 sm:py-2 sm:text-xs"
               >
                 <b.icon className="h-3.5 w-3.5" /> {b.label}
               </span>
