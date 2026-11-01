@@ -339,7 +339,7 @@ function Landing() {
           className="absolute inset-0 bg-gradient-to-r from-foreground/70 via-foreground/20 to-transparent"
         />
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-9 pt-28 sm:px-6 sm:pb-16 sm:pt-40">
-          <p className="hero-in inline-block rounded-full border border-background/25 bg-transparent px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-widest text-background/70 sm:px-3 sm:py-1 sm:text-[10px]">
+          <p className="hero-in font-mono text-[8px] uppercase tracking-widest text-background/70 sm:text-[10px]">
             Advocate & Notary · Mumbai
           </p>
           <h1
