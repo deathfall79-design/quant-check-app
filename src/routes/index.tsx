@@ -408,6 +408,10 @@ function Landing() {
               <span className="normal-case tracking-normal">yrajeshkumar1983@rediffmail.com</span>
             </a>
           </div>
+        </div>
+      </motion.section>
+
+      {/* About */}
       <Reveal id="about" as="section" className="scroll-mt-20 border-b border-border">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <Reveal>
