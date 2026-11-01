@@ -26,7 +26,7 @@ import {
   X,
 } from "lucide-react";
 const portraitUrl = "/images/advocate-portrait.png";
-const justiceStatue = "/images/justice-statue-base.jpg";
+const justiceStatue = "/images/justice-lady-bronze.png";
 import { LegalChatbot } from "@/components/legal/chatbot";
 import { AdvocatePixelPortrait } from "@/components/legal/advocate-pixel-portrait";
 import { Reveal } from "@/components/legal/reveal";
@@ -191,47 +191,7 @@ function NameIntro({ onReveal }: { onReveal: () => void }) {
 }
 
 const HERO_IMG_CLASS =
-  "pointer-events-none absolute inset-0 h-full w-full object-cover object-[68%_center]";
-
-/** Real pans cut from the statue photo; same framing as the base image so they line up exactly. */
-function AnimatedBalance({ visible }: { visible: boolean }) {
-  const reduceMotion = useReducedMotion();
-  const [desktopMotion, setDesktopMotion] = useState(false);
-
-  useEffect(() => {
-    const query = window.matchMedia("(min-width: 1024px) and (pointer: fine)");
-    const update = () => setDesktopMotion(query.matches);
-    update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
-  }, []);
-
-  const moving = visible && desktopMotion && !reduceMotion;
-  // Sample one sine cycle: equal speed through the center, gentle turns,
-  // and matching position/velocity across the repeat boundary.
-  const wave = Array.from({ length: 65 }, (_, i) => i === 64 ? 0 : Math.sin((i / 64) * Math.PI * 2) * 8);
-  const sway = { duration: 8, repeat: Infinity, ease: "linear" as const };
-  const pans = [
-    { src: "/images/scale-pan-left.png", y: wave },
-    { src: "/images/scale-pan-right.png", y: wave.map((value) => -value) },
-  ];
-  return (
-    <>
-      {pans.map((p) => (
-        <motion.img
-          key={p.src}
-          src={p.src}
-          alt=""
-          aria-hidden="true"
-          className={HERO_IMG_CLASS}
-          initial={{ opacity: 0, y: 0 }}
-          animate={{ opacity: visible ? 1 : 0, y: moving ? p.y : 0 }}
-          transition={{ opacity: { duration: reduceMotion ? 0 : 1 }, y: moving ? sway : { duration: 0 } }}
-        />
-      ))}
-    </>
-  );
-}
+  "pointer-events-none absolute inset-0 h-full w-full object-cover object-[50%_14%]";
 
 function Landing() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -356,7 +316,7 @@ function Landing() {
           alt="Lady Justice statue holding scales and sword"
           loading="eager"
           decoding="async"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[68%_center]"
+          className={HERO_IMG_CLASS}
           initial={{ opacity: 0, scale: 1.035 }}
           animate={heroRevealed ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.035 }}
           transition={{ duration: reduceMotion ? 0 : 1, ease: [0.22, 1, 0.36, 1] }}
@@ -370,7 +330,6 @@ function Landing() {
           animate={heroRevealed ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.035 }}
           transition={{ duration: reduceMotion ? 0 : 1.6, ease: [0.22, 1, 0.36, 1] }}
         />
-        <AnimatedBalance visible={heroRevealed} />
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/35 to-transparent"
@@ -433,6 +392,20 @@ function Landing() {
                 <b.icon className="h-3.5 w-3.5" /> {b.label}
               </span>
             ))}
+          </div>
+          <div
+            className="hero-in mt-2.5 flex flex-wrap sm:mt-4"
+            style={{ animationDelay: "560ms" }}
+          >
+            <a
+              href="mailto:yrajeshkumar1983@rediffmail.com"
+              className="inline-flex items-center gap-2 rounded-full border border-background/25 bg-transparent px-3 py-1.5 text-[10px] text-background/80 transition-colors hover:bg-background/10 sm:px-4 sm:py-2 sm:text-xs"
+            >
+              <Mail className="h-3.5 w-3.5" />
+              <span className="uppercase tracking-widest">Reach us</span>
+              <span className="hidden text-background/60 sm:inline">·</span>
+              <span className="normal-case tracking-normal">yrajeshkumar1983@rediffmail.com</span>
+            </a>
           </div>
         </div>
       </motion.section>
