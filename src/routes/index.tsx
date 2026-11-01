@@ -351,62 +351,11 @@ function Landing() {
             L. Yadav
           </h1>
           <p
-            className="hero-in mt-3 max-w-xl text-xs text-background/75 sm:mt-6 sm:text-lg"
+            className="hero-in mt-2.5 max-w-xl text-[10px] leading-snug text-background/75 sm:mt-4 sm:text-sm"
             style={{ animationDelay: "240ms" }}
           >
             Advocate & Notary — Government of India | B.A., LL.B. | 18+ Years of Experience
           </p>
-          <div
-            className="hero-in mt-4 flex flex-col gap-2 sm:mt-8 sm:flex-row sm:gap-3"
-            style={{ animationDelay: "360ms" }}
-          >
-            <motion.a
-              href="#contact"
-              className="btn-press inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-background px-4 py-2.5 text-xs font-medium text-foreground hover:opacity-90 sm:min-h-11 sm:px-6 sm:py-3 sm:text-sm"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              Book a Free Consultation <ArrowRight className="h-4 w-4" />
-            </motion.a>
-            <motion.a
-              href="tel:9029678910"
-              className="btn-press inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-background/40 bg-transparent px-4 py-2.5 text-xs font-medium hover:bg-background/10 sm:min-h-11 sm:px-6 sm:py-3 sm:text-sm"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              <Phone className="h-4 w-4" /> Call Now
-            </motion.a>
-          </div>
-          <div
-            className="hero-in mt-5 flex flex-wrap gap-2 sm:mt-10 sm:gap-3"
-            style={{ animationDelay: "480ms" }}
-          >
-            {[
-              { icon: Stamp, label: "Notary, Govt. of India" },
-              { icon: ShieldCheck, label: "Bar Council of Maharashtra & Goa" },
-            ].map((b) => (
-              <span
-                key={b.label}
-                className="inline-flex items-center gap-2 rounded-full border border-background/25 bg-transparent px-3 py-1.5 text-[11px] text-background/80 sm:px-4 sm:py-2 sm:text-xs"
-              >
-                <b.icon className="h-3.5 w-3.5" /> {b.label}
-              </span>
-            ))}
-          </div>
-          <div
-            className="hero-in mt-2.5 flex flex-wrap sm:mt-4"
-            style={{ animationDelay: "560ms" }}
-          >
-            <a
-              href="mailto:yrajeshkumar1983@rediffmail.com"
-              className="inline-flex items-center gap-2 rounded-full border border-background/25 bg-transparent px-3 py-1.5 text-[10px] text-background/80 transition-colors hover:bg-background/10 sm:px-4 sm:py-2 sm:text-xs"
-            >
-              <Mail className="h-3.5 w-3.5" />
-              <span className="uppercase tracking-widest">Reach us</span>
-              <span className="hidden text-background/60 sm:inline">·</span>
-              <span className="normal-case tracking-normal">yrajeshkumar1983@rediffmail.com</span>
-            </a>
-          </div>
         </div>
       </motion.section>
 
