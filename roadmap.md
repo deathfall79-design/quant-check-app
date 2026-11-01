@@ -13,3 +13,8 @@
 - [x] Add a faded silver halo behind Lady Justice’s head.
 - [x] Refine the portrait pixel assembly and verify both effects.
 - [x] Compact the mobile hero text, buttons, and badges while leaving the desktop hero unchanged.
+- [x] Add the Google site verification meta tag.
+- [x] Swap the hero to the generated bronze Lady Justice statue with its own dark background.
+- [x] Realign the silver head halo to the new statue and remove the old scale-pan overlays.
+- [x] Add the "Reach us" email pill to the hero info block.
+- [ ] Verify hero rendering on desktop and mobile, overflow, console, and build health.
