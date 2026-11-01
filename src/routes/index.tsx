@@ -330,7 +330,6 @@ function Landing() {
           animate={heroRevealed ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.035 }}
           transition={{ duration: reduceMotion ? 0 : 1.6, ease: [0.22, 1, 0.36, 1] }}
         />
-        <AnimatedBalance visible={heroRevealed} />
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/35 to-transparent"
