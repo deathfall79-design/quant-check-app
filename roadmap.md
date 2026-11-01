@@ -17,4 +17,4 @@
 - [x] Swap the hero to the generated bronze Lady Justice statue with its own dark background.
 - [x] Realign the silver head halo to the new statue and remove the old scale-pan overlays.
 - [x] Add the "Reach us" email pill to the hero info block.
-- [ ] Verify hero rendering on desktop and mobile, overflow, console, and build health.
+- [x] Verify hero rendering on desktop and mobile, overflow, console, and build health.
