@@ -261,7 +261,7 @@ export function LegalChatbot() {
         <button
           onClick={() => setOpen(true)}
           aria-label="Open Legal Assistant chat"
-          className="grid h-14 w-14 place-items-center overflow-hidden rounded-full border border-border bg-foreground/90 text-background shadow-lg backdrop-blur-md transition hover:opacity-90"
+          className="grid h-14 w-14 place-items-center overflow-hidden rounded-2xl border border-border bg-foreground/90 text-background shadow-lg backdrop-blur-md transition hover:opacity-90"
         >
           <img src={botLogo} alt="Legal Assistant" className="h-9 w-9 object-contain" />
         </button>

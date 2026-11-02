@@ -28,7 +28,7 @@ import {
 const portraitUrl = "/images/advocate-portrait.png";
 const justiceStatue = "/images/justice-lady-bronze.png";
 import { LegalChatbot } from "@/components/legal/chatbot";
-import { AdvocatePixelPortrait } from "@/components/legal/advocate-pixel-portrait";
+import { AdvocatePortrait } from "@/components/legal/advocate-portrait";
 import { Reveal } from "@/components/legal/reveal";
 import { submitLead } from "@/lib/leads";
 import { Star } from "lucide-react";
@@ -173,7 +173,7 @@ function NameIntro({ onReveal }: { onReveal: () => void }) {
   return (
     <div className="intro-overlay" aria-hidden="true">
       <div className="intro-scale-icon">
-        <Scale className="h-10 w-10" strokeWidth={1.25} />
+        <Scale className="h-7 w-7" strokeWidth={1} />
       </div>
       <div className="intro-name font-display">
         {"Adv. Rajeshkumar L. Yadav".split(" ").map((word, i) => (
@@ -356,6 +356,24 @@ function Landing() {
           >
             Advocate & Notary — Government of India | B.A., LL.B. | 18+ Years of Experience
           </p>
+          <div
+            className="hero-in mt-4 flex flex-wrap gap-2 sm:mt-6 sm:gap-3"
+            style={{ animationDelay: "360ms" }}
+          >
+            <a
+              href="#contact"
+              className="btn-press inline-flex items-center justify-center rounded-full bg-background px-5 py-2 text-[11px] font-semibold text-foreground sm:px-6 sm:py-3 sm:text-sm"
+            >
+              Book Consultation
+            </a>
+            <a
+              href="tel:9029678910"
+              className="btn-press inline-flex items-center justify-center gap-2 rounded-full border border-background/40 px-5 py-2 text-[11px] font-semibold text-background sm:px-6 sm:py-3 sm:text-sm"
+            >
+              <Phone className="h-3.5 w-3.5" />
+              Call Now
+            </a>
+          </div>
         </div>
       </motion.section>
 
@@ -392,7 +410,7 @@ function Landing() {
               </div>
             </Reveal>
             <Reveal delay={120} className="card-hover rounded-3xl border border-border bg-transparent p-3">
-              <AdvocatePixelPortrait
+              <AdvocatePortrait
                 src={portraitUrl}
                 alt="Adv. Rajeshkumar L. Yadav, Advocate & Notary"
               />
@@ -401,7 +419,7 @@ function Landing() {
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={reduceMotion ? { duration: 0 } : { duration: 0.5, delay: 1.85 }}
+                transition={reduceMotion ? { duration: 0 } : { duration: 0.5, delay: 0.45 }}
               >
                 <div className="text-lg font-bold tracking-tight">Adv. Rajeshkumar L. Yadav</div>
                 <div className="text-sm text-muted-foreground">
@@ -681,14 +699,14 @@ function Landing() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"
-          className="grid h-12 w-12 place-items-center rounded-full border border-border bg-background/70 backdrop-blur-md hover:bg-accent"
+          className="grid h-12 w-12 place-items-center rounded-2xl border border-border bg-background/70 backdrop-blur-md hover:bg-accent"
         >
           <MessageCircle className="h-5 w-5" />
         </a>
         <a
           href="tel:9029678910"
           aria-label="Click to call"
-          className="grid h-12 w-12 place-items-center rounded-full border border-border bg-background/70 backdrop-blur-md hover:bg-accent"
+          className="grid h-12 w-12 place-items-center rounded-2xl border border-border bg-background/70 backdrop-blur-md hover:bg-accent"
         >
           <Phone className="h-5 w-5" />
         </a>
