@@ -344,21 +344,6 @@
   transform: scale(0.97);
 }
 
-.pixel-portrait-glow {
-  box-shadow:
-    inset 0 0 34px color-mix(in oklab, var(--foreground) 24%, transparent),
-    0 0 34px color-mix(in oklab, var(--foreground) 18%, transparent);
-}
-
-.pixel-portrait-tile {
-  backface-visibility: hidden;
-  will-change: transform, opacity;
-}
-
-.pixel-portrait-locked .pixel-portrait-tile {
-  will-change: auto;
-}
-
 .justice-head-halo {
   filter: drop-shadow(0 0 12px var(--justice-silver));
 }
@@ -373,8 +358,7 @@
     transform: none;
   }
   .card-hover,
-  .btn-press,
-  .pixel-portrait-tile {
+  .btn-press {
     transition: none;
   }
   .intro-overlay {
