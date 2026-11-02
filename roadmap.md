@@ -18,3 +18,8 @@
 - [x] Realign the silver head halo to the new statue and remove the old scale-pan overlays.
 - [x] Add the "Reach us" email pill to the hero info block.
 - [x] Verify hero rendering on desktop and mobile, overflow, console, and build health.
+
+- [x] Replace the portrait pixel-cube animation with a simple fade-in.
+- [x] Make the floating WhatsApp, call, and chat buttons rounded squares with unchanged colors.
+- [x] Re-add compact Book Consultation and Call Now buttons under the Lady Justice hero text.
+- [x] Shrink the intro overlay (icon, name, rule, tagline) and verify mobile rendering.
