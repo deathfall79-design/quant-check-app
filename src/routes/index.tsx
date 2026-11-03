@@ -695,22 +695,24 @@ function Landing() {
       {/* Floating actions */}
       <div className="fixed bottom-5 right-4 z-50 flex flex-col items-end gap-3">
         <a
-          href="https://wa.me/919029678910"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Chat on WhatsApp"
-          className="grid h-12 w-12 place-items-center rounded-2xl bg-foreground text-background shadow-lg hover:opacity-90"
-        >
-          <MessageCircle className="h-5 w-5" />
-        </a>
-        <a
           href="tel:9029678910"
           aria-label="Click to call"
           className="grid h-12 w-12 place-items-center rounded-2xl bg-background text-foreground shadow-lg hover:opacity-90"
         >
           <Phone className="h-5 w-5" />
         </a>
-        <LegalChatbot />
+        <div className="flex items-center gap-3">
+          <a
+            href="https://wa.me/919029678910"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+            className="grid h-12 w-12 place-items-center rounded-2xl bg-foreground text-background shadow-lg hover:opacity-90"
+          >
+            <MessageCircle className="h-5 w-5" />
+          </a>
+          <LegalChatbot />
+        </div>
       </div>
     </div>
   );
