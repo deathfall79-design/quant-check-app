@@ -684,10 +684,7 @@ function Landing() {
             Disclaimer: This website is for informational purposes only and does not constitute legal advice.
           </p>
           <p className="mt-6 text-center text-xs text-muted-foreground">
-            Developed by Luma Labs. For business and enquire contact email us on{" "}
-            <a href="mailto:lumalabs339@gmail.com" className="underline hover:text-foreground">
-              lumalabs339@gmail.com
-            </a>
+            Developed by Luma Labs Inc.
           </p>
         </div>
       </footer>
