@@ -23,3 +23,5 @@
 - [x] Make the floating WhatsApp, call, and chat buttons rounded squares with unchanged colors.
 - [x] Re-add compact Book Consultation and Call Now buttons under the Lady Justice hero text.
 - [x] Shrink the intro overlay (icon, name, rule, tagline) and verify mobile rendering.
+- [x] Replace the Budget Pulse README with accurate advocate-site details.
+- [x] Remove unused Budget Pulse routes, helpers, and image metadata without changing lead capture or historical migrations.
